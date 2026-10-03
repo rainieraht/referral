@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refer a Friend — Private Travel Savings Presentation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --primary: #e74c3c;
+    --primary-glow: rgba(231,76,60,0.4);
+    --accent: #f1c40f;
+    --accent-glow: rgba(241,196,15,0.3);
+    --success: #2ecc71;
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-hover: rgba(255,255,255,0.07);
+    --text: #fff;
+    --text-muted: #8ab4c7;
+    --text-dim: #5a7a8a;
+    --bg-deep: #0a1929;
+    --bg-mid: #1a2f3d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    animation: orbFloat 20s ease-in-out infinite;
+  }
+  .orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(52,152,219,0.4), transparent 70%);
+    top: -10%; left: -10%;
+    animation-delay: 0s;
+  }
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(231,76,60,0.35), transparent 70%);
+    bottom: -10%; right: -10%;
+    animation-delay: -7s;
+    animation-duration: 25s;
+  }
+  .orb-3 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(241,196,15,0.25), transparent 70%);
+    top: 40%; left: 60%;
+    animation-delay: -14s;
+    animation-duration: 22s;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-30px) scale(1.1); }
+    66% { transform: translate(-20px,20px) scale(0.95); }
+  }
+  .bg-mesh::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--success), #27ae60);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 8px 22px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 20px rgba(46,204,113,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .badge::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+    animation: badge-shimmer 3s infinite;
+  }
+  @keyframes badge-shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 0%, #a8c8dc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subheadline {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .subheadline strong { color: #fff; font-weight: 600; }
+
+  .section {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  }
+  .section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    border-color: rgba(255,255,255,0.12);
+    background: var(--glass-hover);
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title .icon {
+    font-size: 26px;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.2));
+  }
+
+  .form-group {
+    margin-bottom: 22px;
+    position: relative;
+  }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .form-group:focus-within label { color: #3498db; }
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+    outline: none;
+    appearance: none;
+  }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235a7a8a'%3E%3Cpath d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+  }
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #3498db;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 4px rgba(52,152,219,0.15), 0 0 20px rgba(52,152,219,0.1);
+  }
+  .form-group input::placeholder { color: var(--text-dim); }
+  .form-group select option { background: #1a2f3d; color: #fff; }
+  .form-group select:invalid { color: var(--text-dim); }
+
+  .date-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .date-btn {
+    flex: 1;
+    padding: 16px 12px;
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .date-btn:hover {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+  }
+  .date-btn.active {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(231,76,60,0.15), rgba(192,57,43,0.08));
+    color: #fff;
+    box-shadow: 0 0 20px rgba(231,76,60,0.15);
+  }
+  .date-btn .day-label {
+    display: block;
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 2px;
+  }
+  .date-btn .date-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+  .date-btn.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+    border-color: rgba(255,255,255,0.06);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 30px rgba(231,76,60,0.4);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    font-family: inherit;
+  }
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(231,76,60,0.5);
+  }
+  .submit-btn:active { transform: translateY(-1px); }
+  .submit-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+    animation: btn-shimmer 4s infinite;
+  }
+  @keyframes btn-shimmer {
+    0% { transform: translateX(-100%) rotate(25deg); }
+    100% { transform: translateX(100%) rotate(25deg); }
+  }
+  .submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  .submit-btn.loading::after {
+    animation: none;
+    background: rgba(0,0,0,0.2);
+  }
+  .submit-btn.success {
+    background: linear-gradient(135deg, var(--success), #27ae60);
+    box-shadow: 0 8px 30px rgba(46,204,113,0.4);
+  }
+  .btn-subtext {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 14px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card:hover {
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  }
+  .card.featured {
+    border-color: rgba(241,196,15,0.3);
+    box-shadow: 0 0 30px rgba(241,196,15,0.08);
+  }
+  .card.featured:hover {
+    box-shadow: 0 0 50px rgba(241,196,15,0.15);
+  }
+  .featured-badge {
+    position: absolute;
+    top: 16px; right: -40px;
+    background: linear-gradient(135deg, var(--accent), #d4ac0d);
+    color: #000;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 6px 45px;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 2;
+    letter-spacing: 1px;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: #a8c8d8;
+    line-height: 1.65;
+  }
+  .validity {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(46,204,113,0.12);
+    color: var(--success);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-top: 12px;
+    border: 1px solid rgba(46,204,113,0.25);
+  }
+
+  .also {
+    font-size: 14px;
+    color: var(--accent);
+    text-align: center;
+    margin: 24px 0 6px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .also-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .reassure {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 28px 0;
+  }
+  .pill {
+    background: rgba(46,204,113,0.1);
+    border: 1px solid rgba(46,204,113,0.2);
+    color: var(--success);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 30px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .pill:hover {
+    background: rgba(46,204,113,0.18);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(46,204,113,0.15);
+  }
+
+  .safety-box {
+    background: linear-gradient(135deg, rgba(231,76,60,0.06), rgba(231,76,60,0.02));
+    border: 1px solid rgba(231,76,60,0.18);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .safety-box:hover { border-color: rgba(231,76,60,0.3); transform: translateY(-2px); }
+  .safety-title { font-size: 15px; font-weight: 800; color: #ff9f9f; margin-bottom: 8px; }
+  .safety-text { font-size: 14px; color: #c8dde8; line-height: 1.55; }
+
+  .note-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .note-title { font-size: 16px; font-weight: 800; color: var(--text-muted); margin-bottom: 12px; }
+  .note-text { font-size: 14px; color: var(--text-muted); line-height: 1.65; margin-bottom: 10px; }
+  .note-list { list-style: none; padding-left: 0; }
+  .note-list li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .note-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 12px;
+    width: 8px; height: 8px;
+    background: #3498db;
+    border-radius: 50%;
+  }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); margin: 28px 0; }
+
+  .footer {
+    text-align: center;
+    padding: 30px 0 40px;
+  }
+  .company { font-size: 15px; color: var(--text-muted); font-weight: 700; margin-bottom: 6px; }
+  .phone { font-size: 20px; color: var(--accent); font-weight: 900; margin-bottom: 18px; letter-spacing: 0.5px; }
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    opacity: 0.7;
+  }
+  .logos span {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+  }
+  .cruise-logos span { color: var(--accent); border-color: rgba(241,196,15,0.15); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Inline success message */
+  .success-banner {
+    background: linear-gradient(135deg, rgba(46,204,113,0.15), rgba(46,204,113,0.05));
+    border: 1px solid rgba(46,204,113,0.3);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+    display: none;
+    animation: bannerSlide 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .success-banner.show { display: block; }
+  @keyframes bannerSlide {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .success-banner .banner-title {
+    color: var(--success);
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+  .success-banner .banner-text {
+    color: #c8dde8;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .referral-counter {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .referral-counter .count {
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 10px 30px rgba(231,76,60,0.3);
+    z-index: 999;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .spinner {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 26px; }
+    .subheadline { font-size: 15px; }
+    .section { padding: 20px; }
+    body { padding: 12px; }
+    .date-btn { padding: 14px 8px; font-size: 13px; }
+    .date-btn .day-label { font-size: 16px; }
+  }
+</style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+
+<div class="bg-mesh">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="container">
+
+  <div class="reveal" style="text-align:center;padding-top:20px;">
+    <div class="badge">Referral Program</div>
+    <h1>Share This Travel Opportunity</h1>
+    <p class="subheadline">
+      Know someone who would love to save 70%+ on luxury vacations? <strong>Share this travel opportunity</strong> and invite them to learn about the travel certificates and savings available.
+    </p>
+  </div>
+
+  <!-- Certificate Preview Section -->
+  <div class="section reveal">
+    <div class="section-title"><span class="icon">🎁</span> What Your Referral Will Receive</div>
+
+    <div class="card featured">
+      <div class="featured-badge">Featured</div>
+      <div class="card-title">5-Day / 4-Night Cruise Certificate for 2</div>
+      <div class="card-desc">
+        • 24-month validity — redeem now, travel later<br>
+        • Unlimited buffet (breakfast, lunch, dinner) + Vegas-style shows nightly<br>
+        • No onboard sales presentation
+      </div>
+      <div class="validity">✓ Valid for 24 months</div>
+      <div class="cruise-logos" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);"><span>CARNIVAL</span><span>ROYAL CARIBBEAN</span><span>NORWEGIAN</span><span>PRINCESS</span></div>
+    </div>
+
+    <div class="also">Other Available Options</div>
+    <div class="also-sub">They may pick whichever one they prefer after attending</div>
+
+    <div class="card">
+      <div class="card-title">6-Day / 5-Night Hawaii Hotel Certificate for 2</div>
+      <div class="card-desc">
+        • Valid in Oahu — Waikiki Beach, nightlife, shopping, dining<br>
+        • Marriott, Hyatt, Hilton, IHG & Wyndham
+      </div>
+      <div class="validity">✓ Valid for 18 months</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">6-Day / 5-Night All-Inclusive Puerto Plata Beachfront Resort</div>
+      <div class="card-desc">
+        • 5-night all-inclusive beachfront resort (Dominican Republic)<br>
+        • Accommodates 2 adults + 2 children (12 & under)<br>
+        • Unlimited meals, snacks, drinks & alcoholic beverages<br>
+        • Hotel: Lifestyle Tropical Beach Resort & Spa
+      </div>
+      <div class="validity">✓ Valid for 18 months</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Mexico Getaway — Cancun, Riviera Maya, Puerto Vallarta or Cabo</div>
+      <div class="card-desc">
+        • 6D/5N in Cancun, Riviera Maya or Puerto Vallarta OR 5D/4N in Cabo San Lucas<br>
+        • All-inclusive options available at select resorts
+      </div>
+      <div class="validity">✓ Valid for 18 months</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4-Day / 3-Night Luxury U.S. Hotel Stay for 2</div>
+      <div class="card-desc">
+        • Marriott, Hilton, Hyatt, Wyndham & more<br>
+        • 35+ U.S. destinations<br>
+        • Powered by RedeemVacations
+      </div>
+      <div class="validity">✓ Valid for 18 months</div>
+    </div>
+  </div>
+
+  <div class="reassure reveal">
+    <div class="pill">✓ No Membership Obligation</div>
+    <div class="pill">✓ No Timeshare</div>
+    <div class="pill">✓ No Purchase Required</div>
+    <div class="pill">✓ 18–24 Month Validity</div>
+  </div>
+
+  <!-- Referral Counter -->
+  <div class="referral-counter reveal" id="referral-counter" style="display:none;">
+    <span class="count" id="referral-count">0</span> referral(s) submitted this session
+  </div>
+
+  <!-- Success Banner -->
+  <div class="success-banner" id="success-banner">
+    <div class="banner-title">✅ Referral Submitted Successfully!</div>
+    <div class="banner-text">Your referral will be submitted to our team for follow-up. You can submit another referral below.</div>
+  </div>
+
+  <!-- Referral Form -->
+  <div class="section reveal" id="form-section">
+    <div class="section-title"><span class="icon">📝</span> Refer Someone Today</div>
+
+    <form id="referral-form" method="POST">
+
+      <!-- Referrer -->
+      <div class="form-group">
+        <label>Your Full Name (Who's Referring?)</label>
+        <input type="text" name="referrer_name" placeholder="Enter your full name" required>
+      </div>
+
+      <!-- Referred Lead -->
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin-bottom:22px;">
+        <div class="section-title" style="margin-bottom:16px;font-size:16px;"><span class="icon" style="font-size:20px;">👤</span> Person You're Referring</div>
+
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="referred_first_name" placeholder="Enter their first name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="referred_last_name" placeholder="Enter their last name" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="referred_email" placeholder="their@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input type="tel" name="referred_phone" placeholder="(555) 123-4567" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Choose Their Preferred Certificate</label>
+        <select name="certificate" required>
+          <option value="" disabled selected>Select a certificate...</option>
+          <option>5-Day/4-Night Cruise Certificate for 2</option>
+          <option>6-Day/5-Night Hawaii Hotel Certificate</option>
+          <option>4-Day/3-Night Luxury U.S. Hotel Stay</option>
+          <option>6-Day/5-Night Puerto Plata All-Inclusive Resort</option>
+          <option>Mexico Getaway</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>What device will they use to join?</label>
+        <select name="device" required>
+          <option value="" disabled selected>Select device...</option>
+          <option>Laptop/Desktop/Tablet ($100 Bonus)</option>
+          <option>Mobile Phone Only</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Select Their Preferred Date</label>
+        <div class="date-toggle" id="date-toggle">
+          <button type="button" class="date-btn" id="btn-today" onclick="selectDate('today')">
+            <span class="day-label">Today</span>
+            <span class="date-label" id="today-label">...</span>
+          </button>
+          <button type="button" class="date-btn" id="btn-tomorrow" onclick="selectDate('tomorrow')">
+            <span class="day-label">Tomorrow</span>
+            <span class="date-label" id="tomorrow-label">...</span>
+          </button>
+        </div>
+        <input type="hidden" name="date" id="date-input" required>
+      </div>
+
+      <div class="form-group">
+        <label>Their Time Zone</label>
+        <select name="timezone" id="timezone-select" required>
+          <option value="" disabled selected>Select time zone...</option>
+          <option value="ET">Eastern (EDT)</option>
+          <option value="CT">Central (CDT)</option>
+          <option value="MT">Mountain (MDT)</option>
+          <option value="PT">Pacific (PDT)</option>
+          <option value="AK">Alaska (AKDT)</option>
+          <option value="HI">Hawaii (HST)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Preferred Session Time</label>
+        <select name="session_time" id="time-select" required>
+          <option value="" disabled selected>Select time zone first...</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Attendance Confirmation</label>
+        <select name="attendance_confirmation" required>
+          <option value="" disabled selected>Confirm their attendance...</option>
+          <option>Yes, they will attend at the selected time.</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">
+        <span id="btn-text">Submit Referral →</span>
+      </button>
+      <p class="btn-subtext">Your referral will be submitted to our team for follow-up.</p>
+    </form>
+  </div>
+
+  <div class="safety-box reveal">
+    <div class="safety-title">🚫 Safety First</div>
+    <div class="safety-text">
+      For their safety and the quality of the session, we cannot accept joiners who are driving. Please remind them to be stationary and in a quiet environment during the presentation.
+    </div>
+  </div>
+
+  <div class="note-box reveal">
+    <div class="note-title">🗒️ Note for Your Referral</div>
+    <div class="note-text">During the webinar, there will be a brief audience survey to help us better understand our attendees and improve future sessions. This survey is for research and audience profiling purposes only. Their responses will NOT affect their ability to attend or receive their travel certificate.</div>
+    <div class="note-text">✅ The survey may include general questions such as:</div>
+    <ul class="note-list"><li>Combined household annual income — typically $50,000+</li><li>U.S. or Canadian residency status</li></ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer reveal">
+    <p class="company">Aloha Hawaii Tours and Travel</p>
+      <div class="logos cruise-logos"><span>CARNIVAL</span><span>ROYAL CARIBBEAN</span><span>NORWEGIAN</span><span>PRINCESS</span></div>
+    <div class="logos"><span>ACCOR</span><span>HYATT</span><span>HILTON</span><span>IHG</span><span>MARRIOTT</span><span>WYNDHAM</span></div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ===================== CONFIG =====================
+  // Replace this with your deployed Google Apps Script Web App URL.
+  const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+  // ===================== TIMEZONE & CALENDAR LOGIC =====================
+  const TIMEZONE_OFFSETS = {
+    'ET': -4,
+    'CT': -5,
+    'MT': -6,
+    'PT': -7,
+    'AK': -8,
+    'HI': -10
+  };
+
+  const ET_SLOTS = ['14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+  const DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  let selectedDate = null;
+  let todayAvailable = false;
+  let referralCount = 0;
+
+  function getETNow() {
+    const now = new Date();
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/New_York',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: false
+    });
+    const parts = formatter.formatToParts(now);
+    const get = (t) => parts.find(p => p.type === t).value;
+    return new Date(`${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}`);
+  }
+
+  function formatDateShort(date) {
+    return `${MONTHS[date.getMonth()]} ${date.getDate()}`;
+  }
+
+  function formatDateFull(date) {
+    return `${DAYS[date.getDay()]}, ${MONTHS[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  }
+
+  function formatTime(hour24, tzCode) {
+    const h = parseInt(hour24);
+    const offset = TIMEZONE_OFFSETS[tzCode];
+    const etOffset = -4;
+    const diff = etOffset - offset;
+    const localH = (h - diff + 24) % 24;
+    const ampm = localH >= 12 ? 'PM' : 'AM';
+    const displayH = localH % 12 === 0 ? 12 : localH % 12;
+    return `${displayH}:00 ${ampm}`;
+  }
+
+  function initCalendar() {
+    const etNow = getETNow();
+    const etTimeVal = etNow.getHours() * 60 + etNow.getMinutes();
+    const cutoffTime = 20 * 60 + 15;
+
+    const today = new Date(etNow);
+    const tomorrow = new Date(etNow);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    document.getElementById('today-label').textContent = formatDateShort(today);
+    document.getElementById('tomorrow-label').textContent = formatDateShort(tomorrow);
+
+    todayAvailable = etTimeVal < cutoffTime;
+
+    const btnToday = document.getElementById('btn-today');
+    const btnTomorrow = document.getElementById('btn-tomorrow');
+
+    if (!todayAvailable) {
+      btnToday.classList.add('disabled');
+      btnToday.title = "Today's sessions have ended (after 8:15 PM ET)";
+      selectDate('tomorrow');
+    } else {
+      btnToday.classList.remove('disabled');
+      btnToday.title = "";
+      selectDate('today');
+    }
+  }
+
+  function selectDate(which) {
+    const btnToday = document.getElementById('btn-today');
+    const btnTomorrow = document.getElementById('btn-tomorrow');
+    const dateInput = document.getElementById('date-input');
+
+    const etNow = getETNow();
+    const today = new Date(etNow);
+    const tomorrow = new Date(etNow);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    if (which === 'today') {
+      if (!todayAvailable) {
+        showToast("Today's sessions have ended. Please select tomorrow.");
+        return;
+      }
+      btnToday.classList.add('active');
+      btnTomorrow.classList.remove('active');
+      selectedDate = today;
+      dateInput.value = formatDateFull(today);
+    } else {
+      btnToday.classList.remove('active');
+      btnTomorrow.classList.add('active');
+      selectedDate = tomorrow;
+      dateInput.value = formatDateFull(tomorrow);
+    }
+
+    updateTimeSlots();
+  }
+
+  function getAvailableSlotsForDate(isToday, etNow) {
+    if (!isToday) return ET_SLOTS;
+    const currentTimeVal = etNow.getHours() * 60 + etNow.getMinutes();
+    return ET_SLOTS.filter(slot => {
+      const [h, m] = slot.split(':').map(Number);
+      return (h * 60 + m) > currentTimeVal + 30;
+    });
+  }
+
+  function updateTimeSlots() {
+    const tzSelect = document.getElementById('timezone-select');
+    const timeSelect = document.getElementById('time-select');
+    const tz = tzSelect.value;
+
+    if (!tz || !selectedDate) {
+      timeSelect.innerHTML = '<option value="" disabled selected>Select time zone first...</option>';
+      return;
+    }
+
+    const etNow = getETNow();
+    const isToday = selectedDate.toDateString() === etNow.toDateString();
+    const availableSlots = getAvailableSlotsForDate(isToday, etNow);
+
+    timeSelect.innerHTML = '<option value="" disabled selected>Select time...</option>';
+
+    if (availableSlots.length === 0) {
+      const opt = document.createElement('option');
+      opt.value = "";
+      opt.textContent = "No sessions available — please select tomorrow";
+      opt.disabled = true;
+      timeSelect.appendChild(opt);
+      showToast("No remaining sessions for today. Please select tomorrow.");
+      return;
+    }
+
+    availableSlots.forEach(slot => {
+      const opt = document.createElement('option');
+      opt.value = slot + ' ET';
+      const localTime = formatTime(slot, tz);
+      opt.textContent = `${localTime} (${slot.replace(':00','')} ET)`;
+      timeSelect.appendChild(opt);
+    });
+  }
+
+  // ===================== UI INTERACTIONS =====================
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+
+  function showSuccess() {
+    referralCount++;
+    const counter = document.getElementById('referral-counter');
+    const countEl = document.getElementById('referral-count');
+    const banner = document.getElementById('success-banner');
+
+    countEl.textContent = referralCount;
+    counter.style.display = 'block';
+    banner.classList.add('show');
+
+    setTimeout(() => {
+      banner.classList.remove('show');
+    }, 5000);
+  }
+
+  function resetForm() {
+    const form = document.getElementById('referral-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+
+    form.reset();
+    submitBtn.classList.remove('success');
+    btnText.textContent = 'Submit Referral →';
+
+    initCalendar();
+    document.getElementById('time-select').innerHTML = '<option value="" disabled selected>Select time zone first...</option>';
+
+    document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ===================== FORM HANDLING =====================
+  const form = document.getElementById('referral-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+
+  document.getElementById('timezone-select').addEventListener('change', updateTimeSlots);
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!selectedDate) {
+      showToast('Please select a date (Today or Tomorrow).');
+      return;
+    }
+
+    const timeSelect = document.getElementById('time-select');
+    if (!timeSelect.value) {
+      showToast('Please select a session time.');
+      timeSelect.focus();
+      return;
+    }
+
+    submitBtn.classList.add('loading');
+    btnText.innerHTML = '<span class="spinner"></span> Submitting...';
+
+    const formData = new FormData(form);
+
+    try {
+      if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('PASTE_YOUR_')) {
+        throw new Error('Google Apps Script Web App URL has not been configured.');
+      }
+
+      // Use a normal browser POST to a hidden iframe. This avoids CORS issues
+      // while allowing the Google Apps Script Web App to receive the submission.
+      const targetName = 'google-script-submit-' + Date.now();
+      const iframe = document.createElement('iframe');
+      iframe.name = targetName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const originalTarget = form.getAttribute('target');
+      form.setAttribute('target', targetName);
+      form.setAttribute('action', GOOGLE_SCRIPT_URL);
+      form.submit();
+
+      showSuccess();
+      resetForm();
+
+      if (originalTarget) {
+        form.setAttribute('target', originalTarget);
+      } else {
+        form.removeAttribute('target');
+      }
+
+      setTimeout(() => iframe.remove(), 10000);
+    } catch (err) {
+      showToast('Submission failed. Please check your connection and try again.');
+      console.error('Submission error:', err);
+    } finally {
+      submitBtn.classList.remove('loading');
+      if (!submitBtn.classList.contains('success')) {
+        btnText.textContent = 'Submit Referral →';
+      }
+    }
+  });
+
+  initCalendar();
+</script>
+
+</body>
+</html>
